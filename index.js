@@ -71,6 +71,14 @@ app.get("/week1", function(req, res){
   //the starting budget is determined by the persona object
   budget = sophia.budgetAmount;
 
+  var totalMandatoryExpenses = 0;
+
+  for(let expense in sophia.mandatoryExpenses){
+    totalMandatoryExpenses += sophia.mandatoryExpenses[expense];
+  }
+
+  budget -= totalMandatoryExpenses;
+
   var data = {
     weekOneOptions : sophia.weekOneOptions,
     currentBudget : sophia.budgetAmount
@@ -109,8 +117,14 @@ app.post("/week1", function(req, res){
 //Displays mandatory expenses
 //mandatory expenses are deducted from the budget
 app.get("/week2", function(req, res){
-  //the starting budget is determined by the persona object
-  budget = sophia.budgetAmount;
+
+  var totalMandatoryExpenses = 0;
+
+  for(let expense in sophia.mandatoryExpenses){
+    totalMandatoryExpenses += sophia.mandatoryExpenses[expense];
+  }
+
+  budget -= totalMandatoryExpenses;
 
   var data = {
     weekTwoOptions : sophia.weekTwoOptions,
@@ -152,8 +166,14 @@ app.post("/week2", function(req, res){
 //Displays mandatory expenses
 //mandatory expenses are deducted from the budget
 app.get("/week3", function(req, res){
-  //the starting budget is determined by the persona object
-  budget = sophia.budgetAmount;
+
+  var totalMandatoryExpenses = 0;
+
+  for(let expense in sophia.mandatoryExpenses){
+    totalMandatoryExpenses += sophia.mandatoryExpenses[expense];
+  }
+
+  budget -= totalMandatoryExpenses;
 
   var data = {
     weekThreeOptions : sophia.weekThreeOptions,
@@ -192,8 +212,6 @@ app.post("/week3", function(req, res){
 //Displays mandatory expenses
 //expenses are deducted from the budget
 app.get("/week4", function(req, res){
-  //the starting budget is determined by the persona object
-  budget = sophia.budgetAmount;
 
   var data = {
     weekFourOptions : sophia.weekFourOptions,
