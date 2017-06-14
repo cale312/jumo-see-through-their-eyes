@@ -11,30 +11,110 @@ var sophia = {
     "text" : "Sophias son broke his leg while playing soccer for his high school team., and the doctors fee totals at 400",
     "expense" : 400
   },
-  weekOneOptions : {
-    "Bread" : 15,
-    "Milk" : 20,
-    "Rice" : 60,
-    "Sugar" : 45
-  },
-  weekTwoOptions : {
-    "Chicken" : 120,
-    "Bread" : 20,
-    "Butternut" : 15,
-    "Watermelon" : 35
-  },
-  weekThreeOptions : {
-    "Bread" : 15,
-    "Milk" : 20,
-    "Rice" : 60,
-    "Sugar" : 45
-  },
-  weekFourOptions : {
-    "Bread" : 15,
-    "Milk" : 20,
-    "Rice" : 60,
-    "Sugar" : 45
-  },
+  weekOneOptions : [
+    {
+        productName : "Bread",
+        price       : 15,
+        image       : "link"
+
+    },
+    {
+        productName : "Milk",
+        price       : 20,
+        image       : "link"
+
+    },
+    {
+        productName : "Rice",
+        price       : 15,
+        image       : "link"
+
+    },
+    {
+        productName : "Sugar",
+        price       : 15,
+        image       : "link"
+
+    }
+  ],
+  weekTwoOptions : [
+    {
+        productName : "Chicken",
+        price       : 120,
+        image       : "link"
+
+    },
+    {
+        productName : "Bread",
+        price       : 15,
+        image       : "link"
+
+    },
+    {
+        productName : "Butternut",
+        price       : 15,
+        image       : "link"
+
+    },
+    {
+        productName : "Watermelon",
+        price       : 35,
+        image       : "link"
+
+    },
+  ],
+  weekThreeOptions : [
+    {
+        productName : "Bread",
+        price       : 15,
+        image       : "link"
+
+    },
+    {
+        productName : "Milk",
+        price       : 20,
+        image       : "link"
+
+    },
+    {
+        productName : "rice",
+        price       : 60,
+        image       : "link"
+
+    },
+    {
+        productName : "Sugar",
+        price       : 45,
+        image       : "link"
+
+    },
+  ],
+  weekFourOptions : [
+    {
+        productName : "Bread",
+        price       : 15,
+        image       : "link"
+
+    },
+    {
+        productName : "Milk",
+        price       : 20,
+        image       : "link"
+
+    },
+    {
+        productName : "Rice",
+        price       : 60,
+        image       : "link"
+
+    },
+    {
+        productName : "Sugar",
+        price       : 45,
+        image       : "link"
+
+    },
+  ],
   story : "Sophia is a single mother of three from Kinshasa in the Democratic Republic of Congo." +
           "She has a very tight budget which does not allow for " +
           "unplanned spending. A surprise expense, such as a medical bill, could mean the end of her" +
