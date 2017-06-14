@@ -2,10 +2,10 @@ var sophia = {
   budgetAmount : 1500,
   instructions : "Try to make it through to the end of the month without exceeding your budget.",
   mandatoryExpenses: {
-    "Rent" : 240,
-    "School Fees" : 160,
-    "Transport" : 400,
-    "Water and electricity" : 120
+    "Rent" : 60,
+    "School Fees" : 40,
+    "Transport" : 100,
+    "Water and electricity" : 30
   },
   unexpectedexpense: {
     "text" : "Sophias son broke his leg while playing soccer for his high school team., and the doctors fee totals at 400",

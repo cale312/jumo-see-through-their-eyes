@@ -73,8 +73,10 @@ app.get("/week1", function(req, res){
 
   var data = {
     weekOneOptions : sophia.weekOneOptions,
-    currentBudget : sophia.budgetAmount
+    currentBudget : sophia.budgetAmount,
+    mandatoryExpenses : sophia.mandatoryExpenses
   }
+  console.log(data.mandatoryExpenses);
   var weekOptions1 = [];
   var weekOptions2 = [];
 
@@ -83,7 +85,9 @@ app.get("/week1", function(req, res){
 
 res.render("week", {
    weekOptions1,
-   weekOptions2
+   weekOptions2,
+   currentBudget : data.currentBudget,
+   mandatoryExpenses : data.mandatoryExpenses
  });
 });
 
@@ -110,11 +114,10 @@ app.post("/week1", function(req, res){
 //mandatory expenses are deducted from the budget
 app.get("/week2", function(req, res){
   //the starting budget is determined by the persona object
-  budget = sophia.budgetAmount;
 
   var data = {
     weekTwoOptions : sophia.weekTwoOptions,
-    currentBudget : sophia.budgetAmount
+    currentBudget : budget
   }
   
   var weekOptions1 = [];
@@ -156,7 +159,7 @@ app.get("/week3", function(req, res){
 
   var data = {
     weekThreeOptions : sophia.weekThreeOptions,
-    currentBudget : sophia.budgetAmount
+    currentBudget : budget
   }
   var weekOptions1 = [];
   var weekOptions2 = [];
@@ -196,7 +199,7 @@ app.get("/week4", function(req, res){
 
   var data = {
     weekFourOptions : sophia.weekFourOptions,
-    currentBudget : sophia.budgetAmount
+    currentBudget : budget
   }
   var weekOptions1 = [];
   var weekOptions2 = [];
