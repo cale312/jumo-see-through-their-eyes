@@ -26,13 +26,13 @@ var sophia = {
     },
     {
         productName : "Rice",
-        price       : 15,
+        price       : 60,
         image       : "link"
 
     },
     {
         productName : "Sugar",
-        price       : 15,
+        price       : 45,
         image       : "link"
 
     }
@@ -52,7 +52,7 @@ var sophia = {
     },
     {
         productName : "Butternut",
-        price       : 15,
+        price       : 30,
         image       : "link"
 
     },

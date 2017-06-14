@@ -35,7 +35,7 @@ var budget = 0;
 //GET
 //page that displays the app name
 app.get("/", function(req, res){
-  res.send("home");
+  res.render("home");
 });
 
 //POST
@@ -51,7 +51,7 @@ app.post("/", function(req, res){
 //Display instructions
 app.get("/instructions", function(req, res){
 
-  res.send("instructions");
+  res.render("instructions");
 });
 
 //POST
@@ -119,8 +119,7 @@ app.get("/week2", function(req, res){
     weekTwoOptions : sophia.weekTwoOptions,
     currentBudget : budget
   }
-  console.log(data.weekTwoOptions);
-
+  
   var weekOptions1 = [];
   var weekOptions2 = [];
 
