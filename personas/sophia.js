@@ -21,7 +21,7 @@ var sophia = {
     "Chicken" : 120,
     "Bread" : 20,
     "Butternut" : 15,
-    ""
+    "WAtermelon" : 35
   },
   weekThreeOptions : {
     "Bread" : 15,
@@ -41,7 +41,7 @@ var sophia = {
           "allowance for food and water for the month. She uses JUMO for situations where she needs money fast, but" +
           "she often has to pay the late penalty for significant unanticipated fees. She would be interested in a" +
           "medical aid product or medical loan product in the future.",
-  image : (link)
+  image : "image"
 }
 
 module.exports = sophia
