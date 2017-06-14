@@ -7,6 +7,10 @@ var sophia = {
     "Transport" : 400,
     "Water and electricity" : 120
   },
+  unexpectedexpense: {
+    "text" : "Sophias son broke his leg while playing soccer for his high school team., and the doctors fee totals at 400",
+    "expense" : 400
+  },
   weekOneOptions : {
     "Bread" : 15,
     "Milk" : 20,
@@ -17,7 +21,7 @@ var sophia = {
     "Chicken" : 120,
     "Bread" : 20,
     "Butternut" : 15,
-    ""
+    "Watermelon" : 35
   },
   weekThreeOptions : {
     "Bread" : 15,
@@ -37,7 +41,7 @@ var sophia = {
           "allowance for food and water for the month. She uses JUMO for situations where she needs money fast, but" +
           "she often has to pay the late penalty for significant unanticipated fees. She would be interested in a" +
           "medical aid product or medical loan product in the future.",
-  image : (link)
+  image : "image"
 }
 
 module.exports = sophia

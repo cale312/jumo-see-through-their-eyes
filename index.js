@@ -5,6 +5,7 @@ const express = require("express");
 const serve = require("express-static");
 const expressHandlebars = require("express-handlebars");
 const bodyParser = require("body-parser");
+const sophia = require("./personas/sophia.js")
 const app = express();
 
 //configure port env
@@ -119,7 +120,7 @@ app.post("/week2", function(req, res){
     checkboxOptions.forEach((price) => total += Number(price));
 
     budget -= total;
-    res.redirect("/week3");
+    res.redirect("/unexpectedexpense");
   };
 });
 
@@ -191,12 +192,48 @@ app.post("/week4", function(req, res){
 //Displays an unexpected expense associated with the persona
 //Shows the amount deducted, as well as the current budget after the deduction
 app.get("/unexpectedexpense", function(req, res){
+  const unexpectedProb = sophia.unexpectedexpense.text
+  const unexpectedAmount = sophia.unexpectedexpense.expense
 
+  var data = {
+    text: unexpectedProb,
+    price: unexpectedAmount
+  }
+
+  res.render("unexpectedexpense", data)
 });
 
 //POST
 //After clicking next, user is redirected to the following week
 app.post("/unexpectedexpense", function(req, res){
+  const submitButton = req.body.submitButton;
+
+  if(submitButton){
+    var unexpectedexpense = sophia.unexpectedexpense.expense
+
+    budget -= unexpectedexpense;
+    res.redirect("/week3");
+  };
+});
+
+app.get("/story", function(req, res){
+  var story = sophia.story
+  var image = sophia.image
+
+  var data = {
+    story: story,
+    image: image
+  }
+
+  res.render("story", data)
+});
+
+app.post("/story", function(req, res){
+  const restartBtn = req.body.restartButton
+
+  if(restartBtn){
+    res.redirect("/")
+  }
 
 });
 
