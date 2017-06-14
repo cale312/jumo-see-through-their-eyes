@@ -8,22 +8,22 @@ const bodyParser = require("body-parser");
 const app = express();
 const sophia = require("./personas/sophia.js")
 
-function splitWeekOptions(weekRow1,weekRow2,weekOptions){
-weekRow1.push(weekOptions[0], weekOptions[1]);
-weekRow2.push(weekOptions[2], weekOptions[3]);
+function splitWeekOptions(weekRow1, weekRow2, weekOptions) {
+    weekRow1.push(weekOptions[0], weekOptions[1]);
+    weekRow2.push(weekOptions[2], weekOptions[3]);
 }
 //configure port env
 app.set("port", (process.env.PORT || 5001));
 
 //set express handlebars as view engine
 app.engine("handlebars", expressHandlebars({
-  defaultLayout: "main"
+    defaultLayout: "main"
 }));
 app.set("view engine", "handlebars");
 
 //configure middleware
 app.use(bodyParser.urlencoded({
-  extended: false
+    extended: false
 }));
 app.use(bodyParser.json());
 
@@ -34,215 +34,221 @@ var budget = 0;
 
 //GET
 //page that displays the app name
-app.get("/", function(req, res){
-  res.render("home");
+app.get("/", function(req, res) {
+    res.send("home");
 });
 
 //POST
 //click a button to begin the process
-app.post("/", function(req, res){
-  var nextButton = req.body.nextButton;
-  if(nextButton){
-    res.redirect("/instructions");
-  }
+app.post("/", function(req, res) {
+    var nextButton = req.body.nextButton;
+    if (nextButton) {
+        res.redirect("/instructions");
+    }
 })
 
 //GET
 //Display instructions
-app.get("/instructions", function(req, res){
+app.get("/instructions", function(req, res) {
 
-  res.render("instructions");
+    res.send("instructions");
 });
 
 //POST
 //"Begin budgetting" button
-app.post("/instructions", function(req, res){
-  var beginButton = req.body.beginButton;
-  if(beginButton){
-    res.redirect("/week1");
-  }
+app.post("/instructions", function(req, res) {
+    var beginButton = req.body.beginButton;
+    if (beginButton) {
+        res.redirect("/week1");
+    }
 });
 
 //GET
 //Displays choices for additional expenses
 //Displays mandatory expenses
 //mandatory expenses are deducted from the budget
-app.get("/week1", function(req, res){
-  //the starting budget is determined by the persona object
-  budget = sophia.budgetAmount;
+app.get("/week1", function(req, res) {
+    //the starting budget is determined by the persona object
+    budget = sophia.budgetAmount;
 
-  var data = {
-    weekOneOptions : sophia.weekOneOptions,
-    currentBudget : sophia.budgetAmount,
-    mandatoryExpenses : sophia.mandatoryExpenses
-  }
-  console.log(data.mandatoryExpenses);
-  var weekOptions1 = [];
-  var weekOptions2 = [];
+    var data = {
+        weekOneOptions: sophia.weekOneOptions,
+        currentBudget: sophia.budgetAmount,
+        mandatoryExpenses: sophia.mandatoryExpenses
+    }
+    console.log(data.mandatoryExpenses);
+    var weekOptions1 = [];
+    var weekOptions2 = [];
 
-  splitWeekOptions(weekOptions1,weekOptions2,data.weekOneOptions)
+    splitWeekOptions(weekOptions1, weekOptions2, data.weekOneOptions)
 
 
-res.render("week", {
-   weekOptions1,
-   weekOptions2,
-   currentBudget : data.currentBudget,
-   mandatoryExpenses : data.mandatoryExpenses
- });
+    res.render("week", {
+        weekOptions1,
+        weekOptions2,
+        currentBudget: data.currentBudget,
+        mandatoryExpenses: data.mandatoryExpenses
+    });
 });
 
 //POST
 //Optional expenses are deducted from budget, and user
 //is redirected to following week after submission is clicked
-app.post("/week1", function(req, res){
-  const submitButton = req.body.submitButton;
+app.post("/week1", function(req, res) {
+    const submitButton = req.body.submitButton;
 
-  if(submitButton){
-    var checkboxOptions = req.body.weekOneOptions;
-    var total = 0;
+    if (submitButton) {
+        var checkboxOptions = req.body.weekCheckbox;
+        console.log(checkboxOptions);
+        var total = 0;
 
-    checkboxOptions.forEach((price) => total += Number(price));
+        checkboxOptions.forEach((price) => total += Number(price));
 
-    budget -= total;
-    res.redirect("/week2");
-  };
+        budget -= total;
+        res.redirect("/week2");
+    };
 });
 
 //GET
 //Displays choices for additional expenses
 //Displays mandatory expenses
 //mandatory expenses are deducted from the budget
-app.get("/week2", function(req, res){
-  //the starting budget is determined by the persona object
+app.get("/week2", function(req, res) {
+    //the starting budget is determined by the persona object
 
-  var data = {
-    weekTwoOptions : sophia.weekTwoOptions,
-    currentBudget : budget
-  }
-  
-  var weekOptions1 = [];
-  var weekOptions2 = [];
+    var data = {
+        weekTwoOptions: sophia.weekTwoOptions,
+        currentBudget: budget,
+        mandatoryExpenses: sophia.mandatoryExpenses
+    }
+    console.log(data.weekTwoOptions);
 
-  splitWeekOptions(weekOptions1,weekOptions2,data.weekTwoOptions);
-  res.render("week",{
-    weekOptions1,
-    weekOptions2,
-    currentBudget : data.currentBudget
-  });
+    var weekOptions1 = [];
+    var weekOptions2 = [];
+
+    splitWeekOptions(weekOptions1, weekOptions2, data.weekTwoOptions);
+    res.render("week", {
+        weekOptions1,
+        weekOptions2,
+        currentBudget: data.currentBudget,
+        mandatoryExpenses: data.mandatoryExpenses
+    });
 
 });
 
 //POST
 //Optional expenses are deducted from budget, and user
 //is redirected to the unexpectedexpense route
-app.post("/week2", function(req, res){
-  const submitButton = req.body.submitButton;
+app.post("/week2", function(req, res) {
+    const submitButton = req.body.submitButton;
 
-  if(submitButton){
-    var checkboxOptions = req.body.weekOneOptions;
-    var total = 0;
+    if (submitButton) {
+        var checkboxOptions = req.body.weekCheckbox;
+        var total = 0;
 
-    checkboxOptions.forEach((price) => total += Number(price));
+        checkboxOptions.forEach((price) => total += Number(price));
 
-    budget -= total;
-    res.redirect("/week3");
-  };
+        budget -= total;
+        res.redirect("/week3");
+    };
 });
 
 //GET
 //Displays choices for additional expenses
 //Displays mandatory expenses
 //mandatory expenses are deducted from the budget
-app.get("/week3", function(req, res){
-  //the starting budget is determined by the persona object
-  budget = sophia.budgetAmount;
+app.get("/week3", function(req, res) {
+    //the starting budget is determined by the persona object
 
-  var data = {
-    weekThreeOptions : sophia.weekThreeOptions,
-    currentBudget : budget
-  }
-  var weekOptions1 = [];
-  var weekOptions2 = [];
+    var data = {
+        weekThreeOptions: sophia.weekThreeOptions,
+        currentBudget: budget,
+        mandatoryExpenses: sophia.mandatoryExpenses
+    }
+    var weekOptions1 = [];
+    var weekOptions2 = [];
 
-  splitWeekOptions(weekOptions1,weekOptions2,data.weekThreeOptions)
-  res.render("week", {
-    weekOptions1,
-    weekOptions2,
-    currentBudget : data.currentBudget
-  });
+    splitWeekOptions(weekOptions1, weekOptions2, data.weekThreeOptions)
+    res.render("week", {
+        weekOptions1,
+        weekOptions2,
+        currentBudget: data.currentBudget,
+        mandatoryExpenses: data.mandatoryExpenses
+    });
 });
 
 //POST
 //Optional expenses are deducted from budget, and user
 //is redirected to following week after submission is clicked
-app.post("/week3", function(req, res){
-  const submitButton = req.body.submitButton;
+app.post("/week3", function(req, res) {
+    const submitButton = req.body.submitButton;
 
-  if(submitButton){
-    var checkboxOptions = req.body.weekOneOptions;
-    var total = 0;
+    if (submitButton) {
+        var checkboxOptions = req.body.weekCheckbox;
+        var total = 0;
 
-    checkboxOptions.forEach((price) => total += Number(price));
+        checkboxOptions.forEach((price) => total += Number(price));
 
-    budget -= total;
-    res.redirect("/week4");
-  };
+        budget -= total;
+        res.redirect("/week4");
+    };
 });
 
 //GET
 //Displays choices for additional expenses
 //Displays mandatory expenses
 //expenses are deducted from the budget
-app.get("/week4", function(req, res){
-  //the starting budget is determined by the persona object
-  budget = sophia.budgetAmount;
+app.get("/week4", function(req, res) {
+    //the starting budget is determined by the persona object
 
-  var data = {
-    weekFourOptions : sophia.weekFourOptions,
-    currentBudget : budget
-  }
-  var weekOptions1 = [];
-  var weekOptions2 = [];
+    var data = {
+        weekFourOptions: sophia.weekFourOptions,
+        currentBudget: budget,
+        mandatoryExpenses: sophia.mandatoryExpenses
+    }
+    var weekOptions1 = [];
+    var weekOptions2 = [];
 
-  splitWeekOptions(weekOptions1,weekOptions2,data.weekFourOptions)
-  res.render("week", {
-    weekOptions1,
-    weekOptions2,
-    currentBudget : data.currentBudget
-  });
+    splitWeekOptions(weekOptions1, weekOptions2, data.weekFourOptions)
+    res.render("week", {
+        weekOptions1,
+        weekOptions2,
+        currentBudget: data.currentBudget,
+        mandatoryExpenses: data.mandatoryExpenses
+    });
 });
 
 //POST
 //Optional expenses are deducted from budget, and user
 //is redirected to the testimony page when clicking submit
-app.post("/week4", function(req, res){
-  const submitButton = req.body.submitButton;
+app.post("/week4", function(req, res) {
+    const submitButton = req.body.submitButton;
 
-  if(submitButton){
-    var checkboxOptions = req.body.weekOneOptions;
-    var total = 0;
+    if (submitButton) {
+        var checkboxOptions = req.body.weekCheckbox;
+        var total = 0;
 
-    checkboxOptions.forEach((price) => total += Number(price));
+        checkboxOptions.forEach((price) => total += Number(price));
 
-    budget -= total;
-    res.redirect("/week4");
-  };
+        budget -= total;
+        res.redirect("/week4");
+    };
 });
 
 //GET
 //Displays an unexpected expense associated with the persona
 //Shows the amount deducted, as well as the current budget after the deduction
-app.get("/unexpectedexpense", function(req, res){
+app.get("/unexpectedexpense", function(req, res) {
 
 });
 
 //POST
 //After clicking next, user is redirected to the following week
-app.post("/unexpectedexpense", function(req, res){
+app.post("/unexpectedexpense", function(req, res) {
 
 });
 
 const port = process.env.PORT || 3000;
 app.listen(port, function() {
-  console.log('Our app is running on http://localhost:' + port);
+    console.log('Our app is running on http://localhost:' + port);
 });
