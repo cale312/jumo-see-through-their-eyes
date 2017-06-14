@@ -35,7 +35,7 @@ var budget = 0;
 //GET
 //page that displays the app name
 app.get("/", function(req, res){
-  res.send("home");
+  res.render("home");
 });
 
 //POST
@@ -51,7 +51,7 @@ app.post("/", function(req, res){
 //Display instructions
 app.get("/instructions", function(req, res){
 
-  res.send("instructions");
+  res.render("instructions");
 });
 
 //POST
@@ -81,8 +81,10 @@ app.get("/week1", function(req, res){
 
   var data = {
     weekOneOptions : sophia.weekOneOptions,
-    currentBudget : sophia.budgetAmount
+    currentBudget : sophia.budgetAmount,
+    mandatoryExpenses : sophia.mandatoryExpenses
   }
+  console.log(data.mandatoryExpenses);
   var weekOptions1 = [];
   var weekOptions2 = [];
 
@@ -91,7 +93,9 @@ app.get("/week1", function(req, res){
 
 res.render("week", {
    weekOptions1,
-   weekOptions2
+   weekOptions2,
+   currentBudget : data.currentBudget,
+   mandatoryExpenses : data.mandatoryExpenses
  });
 });
 
@@ -126,11 +130,11 @@ app.get("/week2", function(req, res){
 
   budget -= totalMandatoryExpenses;
 
+
   var data = {
     weekTwoOptions : sophia.weekTwoOptions,
-    currentBudget : sophia.budgetAmount
+    currentBudget : budget
   }
-  console.log(data.weekTwoOptions);
 
   var weekOptions1 = [];
   var weekOptions2 = [];
@@ -177,7 +181,7 @@ app.get("/week3", function(req, res){
 
   var data = {
     weekThreeOptions : sophia.weekThreeOptions,
-    currentBudget : sophia.budgetAmount
+    currentBudget : budget
   }
   var weekOptions1 = [];
   var weekOptions2 = [];
@@ -215,7 +219,7 @@ app.get("/week4", function(req, res){
 
   var data = {
     weekFourOptions : sophia.weekFourOptions,
-    currentBudget : sophia.budgetAmount
+    currentBudget : budget
   }
   var weekOptions1 = [];
   var weekOptions2 = [];

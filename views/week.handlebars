@@ -4,7 +4,14 @@
             <div class="row">
                 <h4>Mandatory expenses:</h4>
                 <ul>
-                    <li>
+                  {{#each mandatoryExpenses}}
+                  <li>
+                    {{@key}} : R{{this}}
+                  </li>
+                  {{/each}}
+
+
+                    <!-- <li>
                         Rent: R60
                     </li>
                     <li>
@@ -15,8 +22,7 @@
                     </li>
                     <li>
                         Water and electricity : R30
-                    </li>
-
+                    </li> -->
                 </ul>
                 <h4>Groceries:</h4>
             </div>
@@ -30,7 +36,7 @@
         <div class="row">
             {{#each weekOptions1}}
                 <div class="six columns">
-                    {{productName}}, {{price}}
+                    {{productName}}, R{{price}}
                     <input type="checkbox" value= {{price}} name="weekOneOptions">
                 </div>
             {{/each}}
@@ -38,10 +44,27 @@
         <div class="row">
             {{#each weekOptions2}}
                 <div class="six columns">
-                    {{productName}}, {{price}}
+                    {{productName}}, R{{price}}
                     <input type="checkbox" value= {{price}} name="weekOneOptions">
                 </div>
             {{/each}}
         </div>
+    </div>
+    <br><br><br>
+    <div class="twelve columns">
+      <div class="row">
+        <div class="six columns">
+          Amount remaining: <br>
+          <div class="budgetRemaining">
+            R {{currentBudget}}
+          </div>
+        </div>
+        <div class="six columns">
+          <input type="submit" name="submitButton" value="Submit options" class="submitButton">
+        </div>
+      </div>
+
+
+
     </div>
 </div>
