@@ -67,36 +67,36 @@ app.post("/instructions", function(req, res) {
 //Displays choices for additional expenses
 //Displays mandatory expenses
 //mandatory expenses are deducted from the budget
-app.get("/week1", function(req, res){
-  //the starting budget is determined by the persona object
-  budget = sophia.budgetAmount;
+app.get("/week1", function(req, res) {
+    //the starting budget is determined by the persona object
+    budget = sophia.budgetAmount;
 
-  var totalMandatoryExpenses = 0;
+    var totalMandatoryExpenses = 0;
 
-  for(let expense in sophia.mandatoryExpenses){
-    totalMandatoryExpenses += sophia.mandatoryExpenses[expense];
-  }
+    for (let expense in sophia.mandatoryExpenses) {
+        totalMandatoryExpenses += sophia.mandatoryExpenses[expense];
+    }
 
-  budget -= totalMandatoryExpenses;
+    budget -= totalMandatoryExpenses;
 
-  var data = {
-    weekOneOptions : sophia.weekOneOptions,
-    currentBudget : sophia.budgetAmount,
-    mandatoryExpenses : sophia.mandatoryExpenses
-  }
-  console.log(data.mandatoryExpenses);
-  var weekOptions1 = [];
-  var weekOptions2 = [];
+    var data = {
+        weekOneOptions: sophia.weekOneOptions,
+        currentBudget: budget,
+        mandatoryExpenses: sophia.mandatoryExpenses
+    }
+    console.log(data.mandatoryExpenses);
+    var weekOptions1 = [];
+    var weekOptions2 = [];
 
-  splitWeekOptions(weekOptions1,weekOptions2,data.weekOneOptions)
+    splitWeekOptions(weekOptions1, weekOptions2, data.weekOneOptions)
 
 
-res.render("week", {
-   weekOptions1,
-   weekOptions2,
-   currentBudget : data.currentBudget,
-   mandatoryExpenses : data.mandatoryExpenses
- });
+    res.render("week", {
+        weekOptions1,
+        weekOptions2,
+        currentBudget: data.currentBudget,
+        mandatoryExpenses: data.mandatoryExpenses
+    });
 
 
 });
@@ -109,6 +109,9 @@ app.post("/week1", function(req, res) {
 
     if (submitButton) {
         var checkboxOptions = req.body.weekCheckbox;
+        if (checkboxOptions.constructor !== Array) {
+            checkboxOptions = [checkboxOptions];
+        }
         console.log(checkboxOptions);
         var total = 0;
 
@@ -123,30 +126,32 @@ app.post("/week1", function(req, res) {
 //Displays choices for additional expenses
 //Displays mandatory expenses
 //mandatory expenses are deducted from the budget
-app.get("/week2", function(req, res){
+app.get("/week2", function(req, res) {
 
-  var totalMandatoryExpenses = 0;
+    var totalMandatoryExpenses = 0;
 
-  for(let expense in sophia.mandatoryExpenses){
-    totalMandatoryExpenses += sophia.mandatoryExpenses[expense];
-  }
+    for (let expense in sophia.mandatoryExpenses) {
+        totalMandatoryExpenses += sophia.mandatoryExpenses[expense];
+    }
 
-  budget -= totalMandatoryExpenses;
+    budget -= totalMandatoryExpenses;
 
-  var data = {
-    weekTwoOptions : sophia.weekTwoOptions,
-    currentBudget : budget
-  }
+    var data = {
+        weekTwoOptions: sophia.weekTwoOptions,
+        currentBudget: budget,
+        mandatoryExpenses: sophia.mandatoryExpenses
+    }
 
-  var weekOptions1 = [];
-  var weekOptions2 = [];
+    var weekOptions1 = [];
+    var weekOptions2 = [];
 
-  splitWeekOptions(weekOptions1,weekOptions2,data.weekTwoOptions);
-  res.render("week",{
-    weekOptions1,
-    weekOptions2,
-    currentBudget : data.currentBudget
-  });
+    splitWeekOptions(weekOptions1, weekOptions2, data.weekTwoOptions);
+    res.render("week", {
+        weekOptions1,
+        weekOptions2,
+        currentBudget: data.currentBudget,
+        mandatoryExpenses: data.mandatoryExpenses
+    });
 
 
 });
@@ -159,6 +164,9 @@ app.post("/week2", function(req, res) {
 
     if (submitButton) {
         var checkboxOptions = req.body.weekCheckbox;
+        if (checkboxOptions.constructor !== Array) {
+            checkboxOptions = [checkboxOptions];
+        }
         var total = 0;
 
         checkboxOptions.forEach((price) => total += Number(price));
@@ -172,29 +180,31 @@ app.post("/week2", function(req, res) {
 //Displays choices for additional expenses
 //Displays mandatory expenses
 //mandatory expenses are deducted from the budget
-app.get("/week3", function(req, res){
+app.get("/week3", function(req, res) {
 
-  var totalMandatoryExpenses = 0;
+    var totalMandatoryExpenses = 0;
 
-  for(let expense in sophia.mandatoryExpenses){
-    totalMandatoryExpenses += sophia.mandatoryExpenses[expense];
-  }
+    for (let expense in sophia.mandatoryExpenses) {
+        totalMandatoryExpenses += sophia.mandatoryExpenses[expense];
+    }
 
-  budget -= totalMandatoryExpenses;
+    budget -= totalMandatoryExpenses;
 
-  var data = {
-    weekThreeOptions : sophia.weekThreeOptions,
-    currentBudget : budget
-  }
-  var weekOptions1 = [];
-  var weekOptions2 = [];
+    var data = {
+        weekThreeOptions: sophia.weekThreeOptions,
+        currentBudget: budget,
+        mandatoryExpenses: sophia.mandatoryExpenses
+    }
+    var weekOptions1 = [];
+    var weekOptions2 = [];
 
-  splitWeekOptions(weekOptions1,weekOptions2,data.weekThreeOptions)
-  res.render("week", {
-    weekOptions1,
-    weekOptions2,
-    currentBudget : data.currentBudget
-  });
+    splitWeekOptions(weekOptions1, weekOptions2, data.weekThreeOptions)
+    res.render("week", {
+        weekOptions1,
+        weekOptions2,
+        currentBudget: data.currentBudget,
+        mandatoryExpenses: data.mandatoryExpenses
+    });
 
 
 });
@@ -207,6 +217,9 @@ app.post("/week3", function(req, res) {
 
     if (submitButton) {
         var checkboxOptions = req.body.weekCheckbox;
+        if (checkboxOptions.constructor !== Array) {
+            checkboxOptions = [checkboxOptions];
+        }
         var total = 0;
 
         checkboxOptions.forEach((price) => total += Number(price));
@@ -220,29 +233,30 @@ app.post("/week3", function(req, res) {
 //Displays choices for additional expenses
 //Displays mandatory expenses
 //expenses are deducted from the budget
-app.get("/week4", function(req, res){
+app.get("/week4", function(req, res) {
 
-  var totalMandatoryExpenses = 0;
+    var totalMandatoryExpenses = 0;
 
-  for(let expense in sophia.mandatoryExpenses){
-    totalMandatoryExpenses += sophia.mandatoryExpenses[expense];
-  }
+    for (let expense in sophia.mandatoryExpenses) {
+        totalMandatoryExpenses += sophia.mandatoryExpenses[expense];
+    }
 
-  budget -= totalMandatoryExpenses;
+    budget -= totalMandatoryExpenses;
 
-  var data = {
-    weekFourOptions : sophia.weekFourOptions,
-    currentBudget : budget
-  }
-  var weekOptions1 = [];
-  var weekOptions2 = [];
+    var data = {
+        weekFourOptions: sophia.weekFourOptions,
+        currentBudget: budget,
+        mandatoryExpenses: sophia.mandatoryExpenses
+    }
+    var weekOptions1 = [];
+    var weekOptions2 = [];
 
-  splitWeekOptions(weekOptions1,weekOptions2,data.weekFourOptions)
-  res.render("week", {
-    weekOptions1,
-    weekOptions2,
-    currentBudget : data.currentBudget
-  });
+    splitWeekOptions(weekOptions1, weekOptions2, data.weekFourOptions)
+    res.render("week", {
+        weekOptions1,
+        weekOptions2,
+        currentBudget: data.currentBudget
+    });
 
 });
 
@@ -254,6 +268,9 @@ app.post("/week4", function(req, res) {
 
     if (submitButton) {
         var checkboxOptions = req.body.weekCheckbox;
+        if (checkboxOptions.constructor !== Array) {
+            checkboxOptions = [checkboxOptions];
+        }
         var total = 0;
 
         checkboxOptions.forEach((price) => total += Number(price));
