@@ -5,6 +5,7 @@ const express = require("express");
 const serve = require("express-static");
 const expressHandlebars = require("express-handlebars");
 const bodyParser = require("body-parser");
+const sophia = require("personas/sophia.js")
 const app = express();
 
 //configure port env
@@ -119,7 +120,7 @@ app.post("/week2", function(req, res){
     checkboxOptions.forEach((price) => total += Number(price));
 
     budget -= total;
-    res.redirect("/week3");
+    res.redirect("/unexpectedexpense");
   };
 });
 
@@ -197,7 +198,7 @@ app.get("/unexpectedexpense", function(req, res){
 //POST
 //After clicking next, user is redirected to the following week
 app.post("/unexpectedexpense", function(req, res){
-
+  res.redirect("/week3")
 });
 
 const port = process.env.PORT || 3000;
