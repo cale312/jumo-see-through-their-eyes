@@ -98,28 +98,7 @@ res.render("week", {
    mandatoryExpenses : data.mandatoryExpenses
  });
 
-app.get("/week1", function(req, res) {
-    //the starting budget is determined by the persona object
-    budget = sophia.budgetAmount;
 
-    var data = {
-        weekOneOptions: sophia.weekOneOptions,
-        currentBudget: sophia.budgetAmount,
-        mandatoryExpenses: sophia.mandatoryExpenses
-    }
-    console.log(data.mandatoryExpenses);
-    var weekOptions1 = [];
-    var weekOptions2 = [];
-
-    splitWeekOptions(weekOptions1, weekOptions2, data.weekOneOptions)
-
-
-    res.render("week", {
-        weekOptions1,
-        weekOptions2,
-        currentBudget: data.currentBudget,
-        mandatoryExpenses: data.mandatoryExpenses
-    });
 });
 
 //POST
@@ -169,26 +148,6 @@ app.get("/week2", function(req, res){
     currentBudget : data.currentBudget
   });
 
-app.get("/week2", function(req, res) {
-    //the starting budget is determined by the persona object
-
-    var data = {
-        weekTwoOptions: sophia.weekTwoOptions,
-        currentBudget: budget,
-        mandatoryExpenses: sophia.mandatoryExpenses
-    }
-    console.log(data.weekTwoOptions);
-
-    var weekOptions1 = [];
-    var weekOptions2 = [];
-
-    splitWeekOptions(weekOptions1, weekOptions2, data.weekTwoOptions);
-    res.render("week", {
-        weekOptions1,
-        weekOptions2,
-        currentBudget: data.currentBudget,
-        mandatoryExpenses: data.mandatoryExpenses
-    });
 
 });
 
@@ -237,24 +196,7 @@ app.get("/week3", function(req, res){
     currentBudget : data.currentBudget
   });
 
-app.get("/week3", function(req, res) {
-    //the starting budget is determined by the persona object
 
-    var data = {
-        weekThreeOptions: sophia.weekThreeOptions,
-        currentBudget: budget,
-        mandatoryExpenses: sophia.mandatoryExpenses
-    }
-    var weekOptions1 = [];
-    var weekOptions2 = [];
-
-    splitWeekOptions(weekOptions1, weekOptions2, data.weekThreeOptions)
-    res.render("week", {
-        weekOptions1,
-        weekOptions2,
-        currentBudget: data.currentBudget,
-        mandatoryExpenses: data.mandatoryExpenses
-    });
 });
 
 //POST
@@ -302,24 +244,6 @@ app.get("/week4", function(req, res){
     currentBudget : data.currentBudget
   });
 
-app.get("/week4", function(req, res) {
-    //the starting budget is determined by the persona object
-
-    var data = {
-        weekFourOptions: sophia.weekFourOptions,
-        currentBudget: budget,
-        mandatoryExpenses: sophia.mandatoryExpenses
-    }
-    var weekOptions1 = [];
-    var weekOptions2 = [];
-
-    splitWeekOptions(weekOptions1, weekOptions2, data.weekFourOptions)
-    res.render("week", {
-        weekOptions1,
-        weekOptions2,
-        currentBudget: data.currentBudget,
-        mandatoryExpenses: data.mandatoryExpenses
-    });
 });
 
 //POST
