@@ -1,58 +1,58 @@
-<div class="twelve columns">
-    <div class="row">
-        <div class="six columns">
-            <div class="row">
-                <h4>Mandatory expenses:</h4>
-                <ul>
-                    {{#each mandatoryExpenses}}
-                        <li>
-                            {{@key}} : R{{this}}
-                        </li>
-                    {{/each}}
-                </ul>
-                <h4>Groceries:</h4>
-            </div>
-
-        </div>
+<div class="twelve columns weeks">
+  <div class="row">
+    <div class="six columns">
+      <div class="row">
+        <h4>Mandatory expenses:</h4>
+        <ul>
+          {{#each mandatoryExpenses}}
+            <li>
+              {{@key}} : R{{this}}
+            </li>
+          {{/each}}
+        </ul>
+        <h4>Groceries:</h4>
+      </div>
 
     </div>
 
+  </div>
 
-    <form method="post" action="">
+
+  <form method="post" action="">
     <div class="twelve columns">
-        <div class="row">
-            {{#each weekOptions1}}
-                <div class="six columns">
-                    {{productName}}, R{{price}}
-                    <input class="checkboxes"type="checkbox" value="{{price}}" name="weekCheckbox">
-                </div>
-            {{/each}}
-        </div>
-        <div class="row">
-            {{#each weekOptions2}}
-                <div class="six columns">
-                    {{productName}}, R{{price}}
-                    <input class="checkboxes"type="checkbox" value="{{price}}" name="weekCheckbox">
-                </div>
-            {{/each}}
-        </div>
+      <div class="row">
+        {{#each weekOptions1}}
+          <div class="six columns">
+            {{productName}}, R{{price}}
+            <input class="checkboxes" type="checkbox" value="{{price}}" name="weekCheckbox">
+          </div>
+        {{/each}}
+      </div>
+      <div class="row">
+        {{#each weekOptions2}}
+          <div class="six columns">
+            {{productName}}, R{{price}}
+            <input class="checkboxes" type="checkbox" value="{{price}}" name="weekCheckbox">
+          </div>
+        {{/each}}
+      </div>
     </div>
     <br><br><br>
     <div class="twelve columns">
-        <div class="row">
-            <div class="six columns">
-                Amount remaining: <br>
-                <div class="budgetRemaining">
-                    R {{currentBudget}}
-                </div>
-            </div>
-            <div class="six columns">
-                    <input type="submit" name="submitButton" value="Submit options" class="submitButton">
-                </form>
-            </div>
+      <div class="row">
+        <div class="six columns">
+          Amount remaining: <br>
+          <div class="budgetRemaining">
+            R {{currentBudget}}
+          </div>
         </div>
+        <div class="six columns">
+          <input type="submit" name="submitButton" value="Submit options" class="submitButton" style="background: rgba(255, 255, 255, 0.5); color: black">
+  </form>
+  </div>
+  </div>
 
 
 
-    </div>
+  </div>
 </div>
