@@ -1,2 +1,23 @@
-body{margin: 0px; background: ghostwhite;}
-.header{padding: 40px; background: black; color: #fff; margin: 0px; text-transform: uppercase;}
+body {
+    margin: 0px;
+    background-image: url('../background.jpg');
+    background-size: 100%;
+    background-color: rgba(0,0,0,0.2);
+    /*background: rgba(0,0,0,0.2), url('../background.jpg') right no-repeat;*/
+
+}
+
+.header {
+    padding: 40px;
+    background: rgba(0, 0, 0, 0.3);
+    color: #fff;
+    margin: 0px;
+    text-transform: uppercase;
+    text-align: center;
+    border-bottom: solid white medium;
+    font-size: 2.7em;
+}
+
+.instructionPic {
+    width: 40%;
+}

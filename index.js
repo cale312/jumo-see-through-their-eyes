@@ -50,8 +50,10 @@ app.post("/", function(req, res) {
 //GET
 //Display instructions
 app.get("/instructions", function(req, res) {
-  
-    res.render("instructions");
+    res.render("instructions", {
+        budget: sophia.budgetAmount,
+        instructions: sophia.instructions
+    });
 });
 
 //POST
@@ -255,7 +257,8 @@ app.get("/week4", function(req, res) {
     res.render("week", {
         weekOptions1,
         weekOptions2,
-        currentBudget: data.currentBudget
+        currentBudget: data.currentBudget,
+        mandatoryExpenses: data.mandatoryExpenses
     });
 
 });
