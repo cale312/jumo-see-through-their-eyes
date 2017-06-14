@@ -1,4 +1,5 @@
 var sophia = {
+  name : "Sophia",
   budgetAmount : 1500,
   instructions : "Try to make it through to the end of the month without exceeding your budget.",
   mandatoryExpenses: {
