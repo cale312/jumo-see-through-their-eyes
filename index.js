@@ -130,7 +130,6 @@ app.get("/week2", function(req, res){
 
   budget -= totalMandatoryExpenses;
 
-
   var data = {
     weekTwoOptions : sophia.weekTwoOptions,
     currentBudget : budget
@@ -216,6 +215,14 @@ app.post("/week3", function(req, res){
 //Displays mandatory expenses
 //expenses are deducted from the budget
 app.get("/week4", function(req, res){
+
+  var totalMandatoryExpenses = 0;
+
+  for(let expense in sophia.mandatoryExpenses){
+    totalMandatoryExpenses += sophia.mandatoryExpenses[expense];
+  }
+
+  budget -= totalMandatoryExpenses;
 
   var data = {
     weekFourOptions : sophia.weekFourOptions,
