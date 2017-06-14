@@ -21,7 +21,7 @@ var sophia = {
     "Chicken" : 120,
     "Bread" : 20,
     "Butternut" : 15,
-    "WAtermelon" : 35
+    "Watermelon" : 35
   },
   weekThreeOptions : {
     "Bread" : 15,
