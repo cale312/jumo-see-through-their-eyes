@@ -1,0 +1,47 @@
+<div class="twelve columns">
+    <div class="row">
+        <div class="six columns">
+            <div class="row">
+                <h4>Mandatory expenses:</h4>
+                <ul>
+                    <li>
+                        Rent: R60
+                    </li>
+                    <li>
+                        School fees : R40
+                    </li>
+                    <li>
+                        Transport : R100
+                    </li>
+                    <li>
+                        Water and electricity : R30
+                    </li>
+
+                </ul>
+                <h4>Groceries:</h4>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="twelve columns">
+        <div class="row">
+            {{#each weekOptions1}}
+                <div class="six columns">
+                    {{productName}}, {{price}}
+                    <input type="checkbox" value= {{price}} name="weekOneOptions">
+                </div>
+            {{/each}}
+        </div>
+        <div class="row">
+            {{#each weekOptions2}}
+                <div class="six columns">
+                    {{productName}}, {{price}}
+                    <input type="checkbox" value= {{price}} name="weekOneOptions">
+                </div>
+            {{/each}}
+        </div>
+    </div>
+</div>

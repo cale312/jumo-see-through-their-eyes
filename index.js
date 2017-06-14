@@ -5,8 +5,15 @@ const express = require("express");
 const serve = require("express-static");
 const expressHandlebars = require("express-handlebars");
 const bodyParser = require("body-parser");
-const sophia = require("./personas/sophia.js")
 const app = express();
+const sophia = require("./personas/sophia.js")
+
+function splitWeekOptions(weekRow1,weekRow2,weekOptions){
+weekRow1.push(weekOptions[0], weekOptions[1]);
+weekRow2.push(weekOptions[2], weekOptions[3]);
+}
+//configure port env
+app.set("port", (process.env.PORT || 5001));
 
 //set express handlebars as view engine
 app.engine("handlebars", expressHandlebars({
@@ -28,7 +35,7 @@ var budget = 0;
 //GET
 //page that displays the app name
 app.get("/", function(req, res){
-  res.render("home");
+  res.send("home");
 });
 
 //POST
@@ -38,13 +45,13 @@ app.post("/", function(req, res){
   if(nextButton){
     res.redirect("/instructions");
   }
-});
+})
 
 //GET
 //Display instructions
 app.get("/instructions", function(req, res){
 
-  res.render("instructions");
+  res.send("instructions");
 });
 
 //POST
@@ -68,7 +75,16 @@ app.get("/week1", function(req, res){
     weekOneOptions : sophia.weekOneOptions,
     currentBudget : sophia.budgetAmount
   }
-  res.render("week1", data);
+  var weekOptions1 = [];
+  var weekOptions2 = [];
+
+  splitWeekOptions(weekOptions1,weekOptions2,data.weekOneOptions)
+
+
+res.render("week", {
+   weekOptions1,
+   weekOptions2
+ });
 });
 
 //POST
@@ -97,10 +113,20 @@ app.get("/week2", function(req, res){
   budget = sophia.budgetAmount;
 
   var data = {
-    weekOneOptions : sophia.weekOneOptions,
+    weekTwoOptions : sophia.weekTwoOptions,
     currentBudget : sophia.budgetAmount
   }
-  res.render("week2", data);
+  console.log(data.weekTwoOptions);
+
+  var weekOptions1 = [];
+  var weekOptions2 = [];
+
+  splitWeekOptions(weekOptions1,weekOptions2,data.weekTwoOptions);
+  res.render("week",{
+    weekOptions1,
+    weekOptions2,
+    currentBudget : data.currentBudget
+  });
 
 });
 
@@ -117,7 +143,7 @@ app.post("/week2", function(req, res){
     checkboxOptions.forEach((price) => total += Number(price));
 
     budget -= total;
-    res.redirect("/unexpectedexpense");
+    res.redirect("/week3");
   };
 });
 
@@ -130,10 +156,18 @@ app.get("/week3", function(req, res){
   budget = sophia.budgetAmount;
 
   var data = {
-    weekOneOptions : sophia.weekOneOptions,
+    weekThreeOptions : sophia.weekThreeOptions,
     currentBudget : sophia.budgetAmount
   }
-  res.render("week3", data);
+  var weekOptions1 = [];
+  var weekOptions2 = [];
+
+  splitWeekOptions(weekOptions1,weekOptions2,data.weekThreeOptions)
+  res.render("week", {
+    weekOptions1,
+    weekOptions2,
+    currentBudget : data.currentBudget
+  });
 });
 
 //POST
@@ -162,10 +196,18 @@ app.get("/week4", function(req, res){
   budget = sophia.budgetAmount;
 
   var data = {
-    weekOneOptions : sophia.weekOneOptions,
+    weekFourOptions : sophia.weekFourOptions,
     currentBudget : sophia.budgetAmount
   }
-  res.render("week4", data);
+  var weekOptions1 = [];
+  var weekOptions2 = [];
+
+  splitWeekOptions(weekOptions1,weekOptions2,data.weekFourOptions)
+  res.render("week", {
+    weekOptions1,
+    weekOptions2,
+    currentBudget : data.currentBudget
+  });
 });
 
 //POST
@@ -189,52 +231,15 @@ app.post("/week4", function(req, res){
 //Displays an unexpected expense associated with the persona
 //Shows the amount deducted, as well as the current budget after the deduction
 app.get("/unexpectedexpense", function(req, res){
-  const unexpectedProb = sophia.unexpectedexpense.text
-  const unexpectedAmount = sophia.unexpectedexpense.expense
 
-  var data = {
-    text: unexpectedProb,
-    price: unexpectedAmount
-  }
-
-  res.render("unexpectedexpense", data)
 });
 
 //POST
 //After clicking next, user is redirected to the following week
 app.post("/unexpectedexpense", function(req, res){
-  const submitButton = req.body.submitButton;
-
-  if(submitButton){
-    var unexpectedexpense = sophia.unexpectedexpense.expense
-
-    budget -= unexpectedexpense;
-    res.redirect("/week3");
-  };
-});
-
-app.get("/story", function(req, res){
-  var story = sophia.story
-  var image = sophia.image
-
-  var data = {
-    story: story,
-    image: image
-  }
-
-  res.render("story", data)
-});
-
-app.post("/story", function(req, res){
-  const restartBtn = req.body.restartButton
-
-  if(restartBtn){
-    res.redirect("/")
-  }
 
 });
 
-//configure port env
 const port = process.env.PORT || 3000;
 app.listen(port, function() {
   console.log('Our app is running on http://localhost:' + port);
