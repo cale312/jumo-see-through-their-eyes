@@ -1,4 +1,5 @@
 var sophia = {
+
     name: "Sophia",
     budgetAmount: 1500,
     instructions: "You are a single mother of three. " +
@@ -12,6 +13,122 @@ var sophia = {
     unexpectedexpense: {
         "text": "Sophias son broke his leg while playing soccer for his high school team., and the doctors fee totals at 400",
         "expense": 400
+}
+  name : "Sophia",
+  budgetAmount : 1500,
+  instructions : "Try to make it through to the end of the month without exceeding your budget.",
+  mandatoryExpenses: {
+    "Rent" : 60,
+    "School Fees" : 40,
+    "Transport" : 100,
+    "Water and electricity" : 30
+  },
+  unexpectedexpense: {
+    "text" : "Sophias son broke his leg while playing soccer for his high school team., and the doctors fee totals at 400",
+    "expense" : 400
+  },
+  weekOneOptions : [
+    {
+        productName : "Bread",
+        price       : 15,
+        image       : '../public/img/bread.jpg'
+
+    },
+    {
+        productName : "Milk",
+        price       : 20,
+        image       : "../public/img/milk.jpg"
+
+    },
+    {
+        productName : "Rice",
+        price       : 60,
+        image       : "../public/img/rice.jpg"
+
+    },
+    {
+        productName : "Sugar",
+        price       : 45,
+        image       : "../public/img/sugar.jpg"
+
+    }
+  ],
+  weekTwoOptions : [
+    {
+        productName : "Chicken",
+        price       : 120,
+        image       : "../public/img/chicken.jpg"
+
+    },
+    {
+        productName : "Bread",
+        price       : 15,
+        image       : "../public/img/bread.jpg"
+
+    },
+    {
+        productName : "Butternut",
+        price       : 30,
+        image       : "../public/img/butternut.jpg"
+
+    },
+    {
+        productName : "Watermelon",
+        price       : 35,
+        image       : "../public/img/watermelon.jpg"
+
+    },
+  ],
+  weekThreeOptions : [
+    {
+        productName : "Bread",
+        price       : 15,
+        image       : "../public/img/bread.jpg"
+
+    },
+    {
+        productName : "Milk",
+        price       : 20,
+        image       : "../public/img/milk,jpg"
+
+    },
+    {
+        productName : "rice",
+        price       : 60,
+        image       : "../public/img/rice.jpg"
+
+    },
+    {
+        productName : "Sugar",
+        price       : 45,
+        image       : "../public/img/sugar.jpg"
+
+    },
+  ],
+  weekFourOptions : [
+    {
+        productName : "Bread",
+        price       : 15,
+        image       : "../public/img/bread.jpg"
+
+    },
+    {
+        productName : "Milk",
+        price       : 20,
+        image       : "../public/img/milk.jpg"
+
+    },
+    {
+        productName : "Rice",
+        price       : 60,
+        image       : "../public/img/rice.jpg"
+
+    },
+    {
+        productName : "Sugar",
+        price       : 45,
+        image       : "../public/img/sugar.jpg"
+
     },
     weekOneOptions: [{
             productName: "Bread",
