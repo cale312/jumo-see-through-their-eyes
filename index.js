@@ -5,6 +5,7 @@ const express = require("express");
 const serve = require("express-static");
 const expressHandlebars = require("express-handlebars");
 const bodyParser = require("body-parser");
+const app = express();
 
 //configure port env
 app.set("port", (process.env.PORT || 5001));
@@ -94,6 +95,14 @@ app.post("/week1", function(req, res){
 //Displays mandatory expenses
 //mandatory expenses are deducted from the budget
 app.get("/week2", function(req, res){
+  //the starting budget is determined by the persona object
+  budget = sophia.budgetAmount;
+
+  var data = {
+    weekOneOptions : sophia.weekOneOptions,
+    currentBudget : sophia.budgetAmount
+  }
+  res.render("week2", data);
 
 });
 
@@ -101,7 +110,17 @@ app.get("/week2", function(req, res){
 //Optional expenses are deducted from budget, and user
 //is redirected to the unexpectedexpense route
 app.post("/week2", function(req, res){
+  const submitButton = req.body.submitButton;
 
+  if(submitButton){
+    var checkboxOptions = req.body.weekOneOptions;
+    var total = 0;
+
+    checkboxOptions.forEach((price) => total += Number(price));
+
+    budget -= total;
+    res.redirect("/week3");
+  };
 });
 
 //GET
@@ -109,14 +128,31 @@ app.post("/week2", function(req, res){
 //Displays mandatory expenses
 //mandatory expenses are deducted from the budget
 app.get("/week3", function(req, res){
+  //the starting budget is determined by the persona object
+  budget = sophia.budgetAmount;
 
+  var data = {
+    weekOneOptions : sophia.weekOneOptions,
+    currentBudget : sophia.budgetAmount
+  }
+  res.render("week3", data);
 });
 
 //POST
 //Optional expenses are deducted from budget, and user
 //is redirected to following week after submission is clicked
 app.post("/week3", function(req, res){
+  const submitButton = req.body.submitButton;
 
+  if(submitButton){
+    var checkboxOptions = req.body.weekOneOptions;
+    var total = 0;
+
+    checkboxOptions.forEach((price) => total += Number(price));
+
+    budget -= total;
+    res.redirect("/week4");
+  };
 });
 
 //GET
@@ -124,14 +160,31 @@ app.post("/week3", function(req, res){
 //Displays mandatory expenses
 //expenses are deducted from the budget
 app.get("/week4", function(req, res){
+  //the starting budget is determined by the persona object
+  budget = sophia.budgetAmount;
 
+  var data = {
+    weekOneOptions : sophia.weekOneOptions,
+    currentBudget : sophia.budgetAmount
+  }
+  res.render("week4", data);
 });
 
 //POST
 //Optional expenses are deducted from budget, and user
 //is redirected to the testimony page when clicking submit
 app.post("/week4", function(req, res){
+  const submitButton = req.body.submitButton;
 
+  if(submitButton){
+    var checkboxOptions = req.body.weekOneOptions;
+    var total = 0;
+
+    checkboxOptions.forEach((price) => total += Number(price));
+
+    budget -= total;
+    res.redirect("/week4");
+  };
 });
 
 //GET
@@ -145,4 +198,9 @@ app.get("/unexpectedexpense", function(req, res){
 //After clicking next, user is redirected to the following week
 app.post("/unexpectedexpense", function(req, res){
 
+});
+
+const port = process.env.PORT || 3000;
+app.listen(port, function() {
+  console.log('Our app is running on http://localhost:' + port);
 });
