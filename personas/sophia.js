@@ -115,13 +115,12 @@ var sophia = {
         image       : "../public/img/sugar.jpg"
 
     }],
-    story: "Sophia is a single mother of three from Kinshasa in the Democratic Republic of Congo." +
+    story: "Sophia is a single mother of three from Kinshasa in the Democratic Republic of Congo. " +
         "She has a very tight budget which does not allow for " +
-        "unplanned spending. A surprise expense, such as a medical bill, could mean the end of her" +
-        "allowance for food and water for the month. She uses JUMO for situations where she needs money fast, but" +
-        "she often has to pay the late penalty for significant unanticipated fees. She would be interested in a" +
-        "medical aid product or medical loan product in the future.",
-    image: "image"
+        "unplanned spending. A surprise expense, such as a medical bill, could mean the end of her " +
+        "allowance for food and water for the month. She uses JUMO for situations where she needs money fast, but " +
+        "she often has to pay the late penalty for significant unanticipated fees. She would be interested in a " +
+        "medical aid product or medical loan product in the future."
 }
 
 module.exports = sophia
