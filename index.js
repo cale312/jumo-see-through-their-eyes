@@ -30,7 +30,7 @@ var budget = 0;
 //GET
 //page that displays the app name
 app.get("/", function(req, res){
-  res.send("home");
+  res.render("home");
 });
 
 //POST
@@ -40,13 +40,13 @@ app.post("/", function(req, res){
   if(nextButton){
     res.redirect("/instructions");
   }
-})
+});
 
 //GET
 //Display instructions
 app.get("/instructions", function(req, res){
 
-  res.send("instructions");
+  res.render("instructions");
 });
 
 //POST
