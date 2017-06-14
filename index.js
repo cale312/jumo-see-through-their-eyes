@@ -8,9 +8,6 @@ const bodyParser = require("body-parser");
 const sophia = require("./personas/sophia.js")
 const app = express();
 
-//configure port env
-app.set("port", (process.env.PORT || 5001));
-
 //set express handlebars as view engine
 app.engine("handlebars", expressHandlebars({
   defaultLayout: "main"
@@ -237,6 +234,7 @@ app.post("/story", function(req, res){
 
 });
 
+//configure port env
 const port = process.env.PORT || 3000;
 app.listen(port, function() {
   console.log('Our app is running on http://localhost:' + port);
