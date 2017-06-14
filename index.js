@@ -8,9 +8,6 @@ const bodyParser = require("body-parser");
 const sophia = require("./personas/sophia.js")
 const app = express();
 
-//configure port env
-app.set("port", (process.env.PORT || 5001));
-
 //set express handlebars as view engine
 app.engine("handlebars", expressHandlebars({
   defaultLayout: "main"
@@ -31,7 +28,7 @@ var budget = 0;
 //GET
 //page that displays the app name
 app.get("/", function(req, res){
-  res.send("home");
+  res.render("home");
 });
 
 //POST
@@ -41,13 +38,13 @@ app.post("/", function(req, res){
   if(nextButton){
     res.redirect("/instructions");
   }
-})
+});
 
 //GET
 //Display instructions
 app.get("/instructions", function(req, res){
 
-  res.send("instructions");
+  res.render("instructions");
 });
 
 //POST
@@ -237,6 +234,7 @@ app.post("/story", function(req, res){
 
 });
 
+//configure port env
 const port = process.env.PORT || 3000;
 app.listen(port, function() {
   console.log('Our app is running on http://localhost:' + port);
