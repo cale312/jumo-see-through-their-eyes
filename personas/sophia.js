@@ -39,3 +39,5 @@ var sophia = {
           "medical aid product or medical loan product in the future.",
   image : (link)
 }
+
+module.exports = sophia
