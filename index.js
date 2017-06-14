@@ -86,7 +86,6 @@ app.get("/week1", function(req, res) {
         currentBudget: budget,
         mandatoryExpenses: sophia.mandatoryExpenses
     }
-    console.log(data.mandatoryExpenses);
     var weekOptions1 = [];
     var weekOptions2 = [];
 
@@ -114,7 +113,6 @@ app.post("/week1", function(req, res) {
         if (checkboxOptions.constructor !== Array) {
             checkboxOptions = [checkboxOptions];
         }
-        console.log(checkboxOptions);
         var total = 0;
 
         checkboxOptions.forEach((price) => total += Number(price));

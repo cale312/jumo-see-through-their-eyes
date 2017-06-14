@@ -1,21 +1,53 @@
 body {
     margin: 0px;
     background-image: url('../background.jpg');
-    background-size: 100%;
-    /*background-color: rgba(0,0,0,0.2);*/
-    /*background: rgba(0,0,0,0.2), url('../background.jpg') right no-repeat;*/
+    background-size: cover;
+    font-family: 'Roboto Condensed', sans-serif;
+}
 
+h1 {
+  font-size: 5em;
+  letter-spacing: .2em
+}
+.header{
+  font-size: 4em;
+  font-weight: bolder;
 }
 
 .header {
   background: rgba(0, 0, 0, 0.3);
+    padding: 40px;.home-header{
     padding: 40px;
+    background: rgba(0, 0, 0, 0.4);
     color: #fff;
     margin: 0px;
-    text-transform: uppercase;
     text-align: center;
     border-bottom: solid white medium;
-    font-size: 2.7em;
+}
+
+.weeks {
+  padding: 40px;
+  background: rgba(0, 0, 0, 0.4);
+  color: #fff;
+  margin: 0px;
+  border-bottom: solid white medium;
+}
+
+.instructionDiv{
+  padding: 40px;
+  background: rgba(0, 0, 0, 0.4);
+  color: #fff;
+  margin: 0px;
+  text-align: center;
+  border-bottom: solid white medium;
+}
+
+.instructionDiv img {
+  border-radius: 100%;
+}
+
+p {
+  font-size: 2em;
 }
 
 .profilePic{
@@ -37,5 +69,20 @@ body {
 
 .redExpenses{
   color: red;
+}
   /*text-shadow: rgba(255, 0, 0, 0.5);*/
+=======
+/*.header {
+  color: ghostwhite;
+  font-size: 3em;
+  font-weight: bolder;
+  background: rgba(255, 255, 255, 0.3);
+  margin: 2px;
+  padding: 2px 100px;
+}*/
+
+.customBtn {
+  background-color: rgba(255, 255, 255, 0.5);
+  color: red;
+>>>>>>> 6ab5870732d2d9b6082fab5e79f6dba44d9208ee
 }
