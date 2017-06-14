@@ -8,8 +8,8 @@ body {
 }
 
 .header {
+  background: rgba(0, 0, 0, 0.3);
     padding: 40px;
-    background: rgba(0, 0, 0, 0.3);
     color: #fff;
     margin: 0px;
     text-transform: uppercase;
@@ -18,6 +18,24 @@ body {
     font-size: 2.7em;
 }
 
+.profilePic{
+  width: 100%;
+}
+
 .instructionPic {
     width: 40%;
+}
+
+.foodOptions{
+  height:2em;
+  border: solid white thick;
+  padding: 0.5em;
+  text-align: center;
+  font-size: 1.2em;
+  font-style: bold;
+}
+
+.redExpenses{
+  color: red;
+  /*text-shadow: rgba(255, 0, 0, 0.5);*/
 }

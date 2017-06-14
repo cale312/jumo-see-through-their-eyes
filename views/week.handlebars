@@ -5,12 +5,20 @@
                 <h4>Mandatory expenses:</h4>
                 <ul>
                     {{#each mandatoryExpenses}}
-                        <li>
-                            {{@key}} : R{{this}}
+                        <li class="redExpenses">
+                            {{@key}} : - R{{this}}
                         </li>
                     {{/each}}
                 </ul>
                 <h4>Groceries:</h4>
+            </div>
+            <div class="row">
+              <div class="six columns">
+                  Amount remaining: <br>
+                  <div class="budgetRemaining">
+                      R {{currentBudget}}
+                  </div>
+              </div>
             </div>
 
         </div>
@@ -23,30 +31,27 @@
         <div class="row">
             {{#each weekOptions1}}
                 <div class="six columns">
+                  <div class="foodOptions">
                     {{productName}}, R{{price}}
                     <input class="checkboxes"type="checkbox" value="{{price}}" name="weekCheckbox">
                 </div>
+              </div>
             {{/each}}
-        </div>
+        </div><br>
         <div class="row">
             {{#each weekOptions2}}
                 <div class="six columns">
+                  <div class="foodOptions">
                     {{productName}}, R{{price}}
                     <input class="checkboxes"type="checkbox" value="{{price}}" name="weekCheckbox">
                 </div>
+              </div>
             {{/each}}
         </div>
     </div>
-    <br><br><br>
     <div class="twelve columns">
         <div class="row">
-            <div class="six columns">
-                Amount remaining: <br>
-                <div class="budgetRemaining">
-                    R {{currentBudget}}
-                </div>
-            </div>
-            <div class="six columns">
+            <div class="two columns offset-by-nine">
                     <input type="submit" name="submitButton" value="Submit options" class="submitButton">
                 </form>
             </div>

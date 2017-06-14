@@ -174,7 +174,7 @@ app.post("/week2", function(req, res) {
         checkboxOptions.forEach((price) => total += Number(price));
 
         budget -= total;
-        res.redirect("/week3");
+        res.redirect("/unexpected");
     };
 });
 
@@ -286,13 +286,24 @@ app.post("/week4", function(req, res) {
 //GET
 //Displays an unexpected expense associated with the persona
 //Shows the amount deducted, as well as the current budget after the deduction
-app.get("/unexpectedexpense", function(req, res) {
+app.get("/unexpected", function(req, res) {
+  budget -= sophia.unexpectedexpense.expense;
 
+res.render("unexpected", {
+  text : sophia.unexpectedexpense.text,
+  expense : sophia.unexpectedexpense.expense,
+  budget  : budget
+})
 });
 
 //POST
 //After clicking next, user is redirected to the following week
-app.post("/unexpectedexpense", function(req, res) {
+app.post("/unexpected", function(req, res) {
+  var week3 = req.body.week3;
+
+  if (week3){
+    res.redirect('/week3')
+  }
 
 });
 
@@ -307,7 +318,10 @@ res.render("story", {
 })
 
 app.post("/story", function(req, res) {
-
+var startAgain = req.body.startAgain;
+if (startAgain) {
+  res.redirect('/')
+}
 
 })
 

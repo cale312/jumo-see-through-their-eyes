@@ -1,7 +1,7 @@
 var sophia = {
   name : "Sophia",
   budgetAmount : 1500,
-  instructions : "Try to make it through to the end of the month without exceeding your budget.",
+  instructions : "You are a single mother of three children. Try to make it through to the end of the month without exceeding your budget.",
   mandatoryExpenses: {
     "Rent" : 60,
     "School Fees" : 40,
@@ -9,7 +9,7 @@ var sophia = {
     "Water and electricity" : 30
   },
   unexpectedexpense: {
-    "text" : "Sophias son broke his leg while playing soccer for his high school team., and the doctors fee totals at 400",
+    "text" : "Oh no! Sophias son broke his leg while playing soccer for his high school team, and the doctor's fee totals at R400.",
     "expense" : 400
   },
   weekOneOptions : [

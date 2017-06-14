@@ -1,13 +1,21 @@
 <div class="personaStory">
-  <h1>Your story</h1>
 
   <h3>Well done, you made it to the end of the month!</h3>
 
   <p>You started with R{{initialBudget}}, and you now have R{{budget}} left. You can see that for many people it is
     very difficult to make their money last to the end of the month.</p>
-
-  <p> Your decisions were based on the life of {{name}}, a JUMO customer who was surveyed this year.<br>
-    {{story}}</p>
-
-  <img src="{{persona.image}}">
+<div class="twelve columns">
+  <div class="row">
+    <div class="four columns">
+      <img class="profilePic"src="sophia.jpg">
+    </div>
+    <div class="eight columns">
+  <p> Your decisions were based on the life of {{name}}, a JUMO customer who was surveyed this year.<br><br>
+    {{story}} <br>
+    <form class="" action="/story" method="post">
+      <input type="submit" name="startAgain" value="Try make it through the month again!">
+    </form></p>
+  </div>
+</div>
+</div>
 </div>
