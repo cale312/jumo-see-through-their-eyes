@@ -16,25 +16,25 @@ var sophia = {
     {
         productName : "Bread",
         price       : 15,
-        image       : "link"
+        image       : '../public/img/bread.jpg'
 
     },
     {
         productName : "Milk",
         price       : 20,
-        image       : "link"
+        image       : "../public/img/milk.jpg"
 
     },
     {
         productName : "Rice",
         price       : 60,
-        image       : "link"
+        image       : "../public/img/rice.jpg"
 
     },
     {
         productName : "Sugar",
         price       : 45,
-        image       : "link"
+        image       : "../public/img/sugar.jpg"
 
     }
   ],
@@ -42,25 +42,25 @@ var sophia = {
     {
         productName : "Chicken",
         price       : 120,
-        image       : "link"
+        image       : "../public/img/chicken.jpg"
 
     },
     {
         productName : "Bread",
         price       : 15,
-        image       : "link"
+        image       : "../public/img/bread.jpg"
 
     },
     {
         productName : "Butternut",
         price       : 30,
-        image       : "link"
+        image       : "../public/img/butternut.jpg"
 
     },
     {
         productName : "Watermelon",
         price       : 35,
-        image       : "link"
+        image       : "../public/img/watermelon.jpg"
 
     },
   ],
@@ -68,25 +68,25 @@ var sophia = {
     {
         productName : "Bread",
         price       : 15,
-        image       : "link"
+        image       : "../public/img/bread.jpg"
 
     },
     {
         productName : "Milk",
         price       : 20,
-        image       : "link"
+        image       : "../public/img/milk,jpg"
 
     },
     {
         productName : "rice",
         price       : 60,
-        image       : "link"
+        image       : "../public/img/rice.jpg"
 
     },
     {
         productName : "Sugar",
         price       : 45,
-        image       : "link"
+        image       : "../public/img/sugar.jpg"
 
     },
   ],
@@ -94,25 +94,25 @@ var sophia = {
     {
         productName : "Bread",
         price       : 15,
-        image       : "link"
+        image       : "../public/img/bread.jpg"
 
     },
     {
         productName : "Milk",
         price       : 20,
-        image       : "link"
+        image       : "../public/img/milk.jpg"
 
     },
     {
         productName : "Rice",
         price       : 60,
-        image       : "link"
+        image       : "../public/img/rice.jpg"
 
     },
     {
         productName : "Sugar",
         price       : 45,
-        image       : "link"
+        image       : "../public/img/sugar.jpg"
 
     },
   ],
