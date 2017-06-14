@@ -7,6 +7,10 @@ var sophia = {
     "Transport" : 400,
     "Water and electricity" : 120
   },
+  unexpectedexpense: {
+    "text" : "Sophias son broke his leg while playing soccer for his high school team., and the doctors fee totals at 400",
+    "expense" : 400
+  },
   weekOneOptions : {
     "Bread" : 15,
     "Milk" : 20,
