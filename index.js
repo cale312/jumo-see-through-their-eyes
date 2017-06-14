@@ -50,7 +50,7 @@ app.post("/", function(req, res) {
 //GET
 //Display instructions
 app.get("/instructions", function(req, res) {
-
+  
     res.render("instructions");
 });
 
