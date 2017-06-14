@@ -9,15 +9,26 @@ h1 {
   font-size: 5em;
   letter-spacing: .2em
 }
-.header{
+
+h3, h1 {
+  font-size: 3em;
+  font-weight: bolder;
+  letter-spacing: .1em;
+  color: #fff;
+}
+
+header .header{
   font-size: 4em;
   font-weight: bolder;
 }
 
-.header {
-  background: rgba(0, 0, 0, 0.3);
-    padding: 40px;.home-header{
-    padding: 40px;
+.redExpenses{
+color: red;
+font-weight: bolder;
+}
+
+.header, .home-header{
+    padding: 5px;
     background: rgba(0, 0, 0, 0.4);
     color: #fff;
     margin: 0px;
@@ -25,15 +36,19 @@ h1 {
     border-bottom: solid white medium;
 }
 
+.home-header {
+  font-size: 2.5em;
+}
 .weeks {
   padding: 40px;
   background: rgba(0, 0, 0, 0.4);
   color: #fff;
   margin: 0px;
   border-bottom: solid white medium;
+  font-size: 1.5em;
 }
 
-.instructionDiv{
+.instructionDiv, .uexpense{
   padding: 40px;
   background: rgba(0, 0, 0, 0.4);
   color: #fff;
@@ -48,30 +63,19 @@ h1 {
 
 p {
   font-size: 2em;
-}
-
-.profilePic{
-  width: 100%;
+  color: #fff;
 }
 
 .instructionPic {
     width: 40%;
 }
 
-.foodOptions{
-  height:2em;
-  border: solid white thick;
-  padding: 0.5em;
+.boxes {
   text-align: center;
-  font-size: 1.2em;
-  font-style: bold;
+  border: solid white 2px;
+  margin: 1px;
 }
 
-.redExpenses{
-  color: red;
-}
-  /*text-shadow: rgba(255, 0, 0, 0.5);*/
-=======
 /*.header {
   color: ghostwhite;
   font-size: 3em;
@@ -84,5 +88,4 @@ p {
 .customBtn {
   background-color: rgba(255, 255, 255, 0.5);
   color: red;
->>>>>>> 6ab5870732d2d9b6082fab5e79f6dba44d9208ee
 }

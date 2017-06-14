@@ -96,7 +96,8 @@ app.get("/week1", function(req, res) {
         weekOptions1,
         weekOptions2,
         currentBudget: data.currentBudget,
-        mandatoryExpenses: data.mandatoryExpenses
+        mandatoryExpenses: data.mandatoryExpenses,
+        week: "First Week"
     });
 
 
@@ -150,7 +151,8 @@ app.get("/week2", function(req, res) {
         weekOptions1,
         weekOptions2,
         currentBudget: data.currentBudget,
-        mandatoryExpenses: data.mandatoryExpenses
+        mandatoryExpenses: data.mandatoryExpenses,
+        week: "Second Week"
     });
 
 
@@ -203,7 +205,8 @@ app.get("/week3", function(req, res) {
         weekOptions1,
         weekOptions2,
         currentBudget: data.currentBudget,
-        mandatoryExpenses: data.mandatoryExpenses
+        mandatoryExpenses: data.mandatoryExpenses,
+        week: "Third Week"
     });
 
 
@@ -256,7 +259,8 @@ app.get("/week4", function(req, res) {
         weekOptions1,
         weekOptions2,
         currentBudget: data.currentBudget,
-        mandatoryExpenses: data.mandatoryExpenses
+        mandatoryExpenses: data.mandatoryExpenses,
+        week: "Fourth Week"
     });
 
 });
