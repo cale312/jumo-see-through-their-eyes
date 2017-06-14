@@ -277,7 +277,7 @@ app.post("/week4", function(req, res) {
         checkboxOptions.forEach((price) => total += Number(price));
 
         budget -= total;
-        res.redirect("/week4");
+        res.redirect("/story");
     };
 });
 
@@ -293,6 +293,21 @@ app.get("/unexpectedexpense", function(req, res) {
 app.post("/unexpectedexpense", function(req, res) {
 
 });
+
+
+app.get("/story", function(req, res) {
+res.render("story", {
+  name : sophia.name,
+  story : sophia.story,
+  initialBudget : sophia.budgetAmount,
+  budget : budget
+})
+})
+
+app.post("/story", function(req, res) {
+
+
+})
 
 const port = process.env.PORT || 3000;
 app.listen(port, function() {

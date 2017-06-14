@@ -1,6 +1,7 @@
 body {
     margin: 0px;
     background-image: url('../background.jpg');
+<<<<<<< HEAD
     background-size: cover;
     font-family: 'Roboto Condensed', sans-serif;
 }
@@ -9,6 +10,11 @@ h1 {
   font-size: 5em;
   letter-spacing: .2em
 }
+=======
+    background-size: 100%;
+    /*background-color: rgba(0,0,0,0.2);*/
+    /*background: rgba(0,0,0,0.2), url('../background.jpg') right no-repeat;*/
+>>>>>>> 45290866576a3abd737e1055b5b9b7ee3e636f38
 
 header .header{
   font-size: 4em;
