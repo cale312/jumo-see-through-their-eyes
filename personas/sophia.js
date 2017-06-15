@@ -9,7 +9,7 @@ var sophia = {
     "Water and electricity" : 30
   },
   unexpectedexpense: {
-    "text" : "Oh no! Sophia's son broke his leg while playing soccer for his high school team, and the doctors fee totals at 400",
+    "text" : "Oh no! Your son broke his leg while playing soccer for his high school team, and the doctors fee totals at R400",
     "expense" : 400
   },
   weekOneOptions : [
